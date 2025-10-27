@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Register - Webspark Traffic Network</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+  
+  <!-- Security headers -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.google.com https://www.gstatic.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data: https:; font-src 'self' https://cdn.jsdelivr.net;">
+  
+  <style>
+    body { 
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+    }
+    
+    .auth-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .register-card {
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      border: none;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+    
+    .email-verification-notice {
+      background: linear-gradient(135deg, #28a745, #20c997);
+      color: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      text-align: center;
+    }
+    
+    .security-indicator {
+      background: rgba(255, 193, 7, 0.1);
+      border-left: 4px solid #ffc107;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 0 8px 8px 0;
+    }
+    
+    .form-control:focus {
+      border-color: #0d6efd;
+      box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+    }
+    
+    .password-strength {
+      margin-top: 0.5rem;
+    }
+    
+    .strength-bar {
+      height: 4px;
+      border-radius: 2px;
+      background: #e9ecef;
+      overflow: hidden;
+      margin-bottom: 0.5rem;
+    }
+    
+    .strength-fill {
+      height: 100%;
+      transition: all 0.3s ease;
+      width: 0%;
+    }
+    
+    .referral-bonus {
+      background: linear-gradient(135deg, #17a2b8, #28a745);
+      color: white;
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #0d6efd 0%, #6610f2 100%);
+      border: none;
+      padding: 12px 24px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #0b5ed7 0%, #520dc2 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .verification-steps {
+      background: rgba(13, 110, 253, 0.05);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body class="auth-page">
+  <!-- Navigation Header -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">🚀 Webspark</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#features">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#pricing">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#security">Security</a></li>
+          <li class="nav-item"><a class="nav-link active" href="register.html">Sign Up</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Registration Content -->
+  <div class="container py-4 flex-grow-1">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="text-center mb-4">
+          <h2 class="text-primary fw-bold">Join Webspark Today!</h2>
+          <p class="lead text-muted">Create your secure account with <strong>email verification</strong> and start getting real website traffic</p>
+        </div>
+        
+        <!-- Email Verification Notice -->
+        <div class="email-verification-notice">
+          <div class="d-flex align-items-center justify-content-center">
+            <i class="bi bi-envelope-check-fill me-3" style="font-size: 2rem;"></i>
+            <div>
+              <strong>📧 Email Verification Required</strong>
+              <div class="mt-1">You'll need to verify your email address before you can login and access the platform. Check your inbox after registration!</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Referral Bonus Alert -->
+        <div id="referralBonus" class="referral-bonus" style="display: none;">
+          <div class="d-flex align-items-center justify-content-center">
+            <i class="bi bi-gift-fill me-2" style="font-size: 1.5rem;"></i>
+            <div>
+              <strong>Referral Bonus!</strong>
+              <div class="small">You were referred by a friend! Both of you will get bonus credits after email verification.</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="register-card card shadow-lg border-0">
+          <div class="card-header bg-primary text-white text-center py-4">
+            <h4 class="mb-2">Create Your Secure Account</h4>
+            <p class="mb-0 opacity-75">📧 Email verification + 🎉 10 free credits + 🔒 Advanced security</p>
+          </div>
+          
+          <div class="card-body p-4">
+            <!-- Enhanced Security Notice -->
+            <div class="security-indicator">
+              <div class="d-flex align-items-center">
+                <i class="bi bi-shield-check text-warning me-2"></i>
+                <small><strong>Email Verification Required:</strong> You'll need to verify your email address before you can login and use the platform. This ensures account security and prevents spam.</small>
+              </div>
+            </div>
+            
+            <!-- Success/Error Messages -->
+            <div id="formMessages"></div>
+            
+            <form id="registerForm" action="register.php" method="post" novalidate>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label class="form-label fw-semibold">First Name *</label>
+                    <input type="text" class="form-control form-control-lg" id="firstName" name="firstName" required>
+                    <div class="invalid-feedback">Please provide your first name.</div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label class="form-label fw-semibold">Last Name *</label>
+                    <input type="text" class="form-control form-control-lg" id="lastName" name="lastName" required>
+                    <div class="invalid-feedback">Please provide your last name.</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-group mb-3">
+                <label class="form-label fw-semibold">Username *</label>
+                <input type="text" class="form-control form-control-lg" id="username" name="username" required minlength="3" maxlength="20" pattern="[a-zA-Z0-9_]+">
+                <div class="form-text">3-20 characters, letters, numbers and underscore only</div>
+                <div class="invalid-feedback">Please choose a username (at least 3 characters).</div>
+              </div>
+              
+              <div class="form-group mb-3">
+                <label class="form-label fw-semibold">Email Address *</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                  <input type="email" class="form-control form-control-lg" id="email" name="email" required>
+                </div>
+                <div class="form-text">📧 <strong>Important:</strong> We'll send a verification email to this address. Check your inbox after registration!</div>
+                <div class="invalid-feedback">Please provide a valid email address.</div>
+              </div>
+              
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label class="form-label fw-semibold">Country *</label>
+                    <select class="form-select form-select-lg" id="country" name="country" required>
+                      <option value="">Select Your Country</option>
+                      <option value="Australia">🇦🇺 Australia</option>
+                      <option value="USA">🇺🇸 United States</option>
+                      <option value="UK">🇬🇧 United Kingdom</option>
+                      <option value="Canada">🇨🇦 Canada</option>
+                      <option value="India">🇮🇳 India</option>
+                      <option value="Germany">🇩🇪 Germany</option>
+                      <option value="France">🇫🇷 France</option>
+                      <option value="Japan">🇯🇵 Japan</option>
+                      <option value="Brazil">🇧🇷 Brazil</option>
+                      <option value="Other">🌍 Other</option>
+                    </select>
+                    <div class="invalid-feedback">Please select your country.</div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label class="form-label fw-semibold">Primary Niche *</label>
+                    <select class="form-select form-select-lg" id="niche" name="niche" required>
+                      <option value="">Select Your Niche</option>
+                      <option value="Technology">💻 Technology</option>
+                      <option value="Health">🏥 Health & Fitness</option>
+                      <option value="Business">💼 Business</option>
+                      <option value="Education">📚 Education</option>
+                      <option value="Entertainment">🎬 Entertainment</option>
+                      <option value="Travel">✈️ Travel</option>
+                      <option value="Food">🍕 Food & Cooking</option>
+                      <option value="Fashion">👗 Fashion</option>
+                      <option value="Sports">⚽ Sports</option>
+                      <option value="Finance">💰 Finance</option>
+                    </select>
+                    <div class="invalid-feedback">Please select your primary niche.</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label class="form-label fw-semibold">Password *</label>
+                    <div class="input-group">
+                      <input type="password" class="form-control form-control-lg" id="password" name="password" required minlength="8">
+                      <button type="button" class="btn btn-outline-secondary" id="togglePassword">
+                        <i class="bi bi-eye"></i>
+                      </button>
+                    </div>
+                    <div class="password-strength">
+                      <div class="strength-bar">
+                        <div class="strength-fill" id="strengthBar"></div>
+                      </div>
+                      <small id="strengthText">Enter a password</small>
+                    </div>
+                    <div class="invalid-feedback">Password must be at least 8 characters with uppercase, lowercase, and number.</div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label class="form-label fw-semibold">Confirm Password *</label>
+                    <div class="input-group">
+                      <input type="password" class="form-control form-control-lg" id="confirmPassword" name="confirmPassword" required>
+                      <button type="button" class="btn btn-outline-secondary" id="toggleConfirmPassword">
+                        <i class="bi bi-eye"></i>
+                      </button>
+                    </div>
+                    <div class="invalid-feedback">Passwords don't match.</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" id="terms" required>
+                <label class="form-check-label" for="terms">
+                  I agree to the <a href="#" target="_blank" class="text-primary">Terms of Service</a> and <a href="#" target="_blank" class="text-primary">Privacy Policy</a> *
+                </label>
+                <div class="invalid-feedback">You must agree to the terms and conditions.</div>
+              </div>
+              
+              <div class="form-check mb-4">
+                <input class="form-check-input" type="checkbox" id="newsletter">
+                <label class="form-check-label" for="newsletter">
+                  📧 Send me updates about new features and security updates (optional)
+                </label>
+              </div>
+              
+              <button type="submit" class="btn btn-primary btn-lg w-100 mb-4" id="submitBtn">
+                <i class="bi bi-envelope-check me-2"></i>Create Account & Send Verification Email
+              </button>
+            </form>
+            
+            <div class="text-center">
+              <p class="mb-3">Already have an account? <a href="login.html" class="text-primary fw-semibold">Sign in here</a></p>
+            </div>
+            
+            <hr class="my-4">
+            
+            <div class="text-center">
+              <p class="text-muted mb-3">Or continue with</p>
+              <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                <button class="btn btn-outline-dark" onclick="showComingSoon('Google')">
+                  <i class="bi bi-google me-2"></i>Google
+                </button>
+                <button class="btn btn-outline-dark" onclick="showComingSoon('Facebook')">
+                  <i class="bi bi-facebook me-2"></i>Facebook
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="card-footer bg-light text-center py-3">
+            <small class="text-muted">
+              <i class="bi bi-shield-check me-1 text-success"></i>
+              Your information is secure and encrypted with 256-bit SSL + Email verification required
+            </small>
+          </div>
+        </div>
+        
+        <!-- Email Verification Steps -->
+        <div class="verification-steps">
+          <h6><i class="bi bi-list-check text-primary me-2"></i>After Registration:</h6>
+          <div class="row">
+            <div class="col-md-3 text-center mb-3">
+              <i class="bi bi-1-circle-fill text-primary" style="font-size: 1.5rem;"></i>
+              <div class="small mt-1">Check your email</div>
+            </div>
+            <div class="col-md-3 text-center mb-3">
+              <i class="bi bi-2-circle-fill text-info" style="font-size: 1.5rem;"></i>
+              <div class="small mt-1">Click verification link</div>
+            </div>
+            <div class="col-md-3 text-center mb-3">
+              <i class="bi bi-3-circle-fill text-success" style="font-size: 1.5rem;"></i>
+              <div class="small mt-1">Account activated</div>
+            </div>
+            <div class="col-md-3 text-center mb-3">
+              <i class="bi bi-4-circle-fill text-warning" style="font-size: 1.5rem;"></i>
+              <div class="small mt-1">Start using platform</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Benefits Section -->
+        <div class="row mt-4 text-center">
+          <div class="col-md-4">
+            <div class="benefit-item">
+              <i class="bi bi-envelope-check text-primary" style="font-size: 2rem;"></i>
+              <h6 class="mt-2">Email Verified Security</h6>
+              <small class="text-muted">Secure email verification prevents spam accounts and ensures legitimate users</small>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="benefit-item">
+              <i class="bi bi-people-fill text-success" style="font-size: 2rem;"></i>
+              <h6 class="mt-2">Real Human Traffic</h6>
+              <small class="text-muted">No bots, no fake traffic - only genuine human visitors from verified accounts</small>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="benefit-item">
+              <i class="bi bi-graph-up-arrow text-warning" style="font-size: 2rem;"></i>
+              <h6 class="mt-2">Advanced Analytics</h6>
+              <small class="text-muted">Detailed insights and real-time performance tracking from day one</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-3 mt-auto">
+    <div class="container text-center">
+      <div class="d-flex justify-content-center align-items-center">
+        <span class="me-3">🚀 Webspark</span>
+        <small>&copy; 2025 Webspark Traffic Network. All rights reserved.</small>
+      </div>
+    </div>
+  </footer>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Check for referral parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const referral = urlParams.get('ref');
+    if (referral) {
+      document.getElementById('referralBonus').style.display = 'block';
+    }
+
+    // Password visibility toggles
+    document.getElementById('togglePassword').addEventListener('click', function() {
+      const password = document.getElementById('password');
+      const icon = this.querySelector('i');
+      
+      if (password.type === 'password') {
+        password.type = 'text';
+        icon.className = 'bi bi-eye-slash';
+      } else {
+        password.type = 'password';
+        icon.className = 'bi bi-eye';
+      }
+    });
+
+    document.getElementById('toggleConfirmPassword').addEventListener('click', function() {
+      const password = document.getElementById('confirmPassword');
+      const icon = this.querySelector('i');
+      
+      if (password.type === 'password') {
+        password.type = 'text';
+        icon.className = 'bi bi-eye-slash';
+      } else {
+        password.type = 'password';
+        icon.className = 'bi bi-eye';
+      }
+    });
+
+    // Password strength checker
+    document.getElementById('password').addEventListener('input', function() {
+      const password = this.value;
+      const strengthBar = document.getElementById('strengthBar');
+      const strengthText = document.getElementById('strengthText');
+      
+      let strength = 0;
+      let text = 'Weak';
+      let color = '#dc3545';
+      
+      if (password.length >= 8) strength += 1;
+      if (password.match(/[a-z]/)) strength += 1;
+      if (password.match(/[A-Z]/)) strength += 1;
+      if (password.match(/[0-9]/)) strength += 1;
+      if (password.match(/[^a-zA-Z0-9]/)) strength += 1;
+      
+      switch (strength) {
+        case 0:
+        case 1:
+          text = 'Very Weak';
+          color = '#dc3545';
+          break;
+        case 2:
+          text = 'Weak';
+          color = '#fd7e14';
+          break;
+        case 3:
+          text = 'Fair';
+          color = '#ffc107';
+          break;
+        case 4:
+          text = 'Good';
+          color = '#20c997';
+          break;
+        case 5:
+          text = 'Strong';
+          color = '#28a745';
+          break;
+      }
+      
+      strengthBar.style.width = (strength * 20) + '%';
+      strengthBar.style.backgroundColor = color;
+      strengthText.textContent = text;
+      strengthText.style.color = color;
+    });
+
+    // Real-time validation
+    document.querySelectorAll('input, select').forEach(field => {
+      field.addEventListener('blur', function() {
+        if (this.checkValidity()) {
+          this.classList.remove('is-invalid');
+          this.classList.add('is-valid');
+        } else {
+          this.classList.remove('is-valid');
+          this.classList.add('is-invalid');
+        }
+      });
+    });
+
+    // Password confirmation validation
+    document.getElementById('confirmPassword').addEventListener('input', function() {
+      const password = document.getElementById('password').value;
+      const confirmPassword = this.value;
+      
+      if (password !== confirmPassword) {
+        this.setCustomValidity('Passwords do not match');
+        this.classList.add('is-invalid');
+      } else {
+        this.setCustomValidity('');
+        this.classList.remove('is-invalid');
+        this.classList.add('is-valid');
+      }
+    });
+
+    // Enhanced form submission handling
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+      // Check password match
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      
+      if (password !== confirmPassword) {
+        e.preventDefault();
+        alert('❌ Passwords do not match!');
+        return false;
+      }
+      
+      // Show loading state
+      const submitBtn = document.getElementById('submitBtn');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Creating Account & Sending Verification...';
+      submitBtn.disabled = true;
+      
+      // Add referral data if exists
+      if (referral) {
+        const hiddenInput = document.createElement('input');
+        hiddenInput.type = 'hidden';
+        hiddenInput.name = 'referral_code';
+        hiddenInput.value = referral;
+        this.appendChild(hiddenInput);
+      }
+      
+      // Show success message
+      document.getElementById('formMessages').innerHTML = 
+        '<div class="alert alert-info"><i class="bi bi-hourglass-split me-2"></i>Creating your secure account and sending verification email... Please wait.</div>';
+      
+      // Re-enable button after timeout
+      setTimeout(() => {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }, 15000);
+    });
+
+    function showComingSoon(platform) {
+      alert(`🚀 ${platform} registration is coming soon! For now, please use email registration with verification.`);
+    }
+  </script>
+</body>
+</html>

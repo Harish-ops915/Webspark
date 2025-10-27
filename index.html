@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Webspark - Traffic Exchange Network</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+  
+  <!-- Performance: Preload critical resources -->
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" as="style">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" as="style">
+  
+  <!-- Security & SEO Meta Tags -->
+  <meta name="description" content="Get real website traffic with Webspark - the leading traffic exchange network. Secure, fast, and effective traffic solutions.">
+  <meta name="keywords" content="website traffic, traffic exchange, real visitors, website promotion, SEO traffic">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#0d6efd">
+  
+  <!-- Security Headers -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data:; font-src 'self' https://cdn.jsdelivr.net;">
+  
+  <style>
+    body { 
+      background-color: #f8f9fa; 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .hero-section { 
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+      color: white; 
+      min-height: 100vh; 
+      display: flex; 
+      align-items: center; 
+    }
+    
+    .feature-card { 
+      transition: transform 0.3s ease, box-shadow 0.3s ease; 
+      padding: 2rem; 
+      border-radius: 15px; 
+      background: white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border: none;
+      height: 100%;
+    }
+    
+    .feature-card:hover { 
+      transform: translateY(-10px); 
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
+    
+    .security-badge {
+      background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .security-badge::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s ease;
+    }
+    
+    .security-badge:hover::before {
+      left: 100%;
+    }
+    
+    .performance-indicator {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255,255,255,0.1);
+      padding: 0.25rem 0.75rem;
+      border-radius: 15px;
+      font-size: 0.8rem;
+    }
+    
+    .trust-indicators {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+    
+    .trust-indicator {
+      display: flex;
+      align-items: center;
+      color: rgba(255,255,255,0.9);
+      font-size: 0.9rem;
+    }
+    
+    .trust-indicator i {
+      margin-right: 0.5rem;
+      color: #28a745;
+    }
+    
+    .lazy-load {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .lazy-load.loaded {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Performance optimizations */
+    .pricing-card .price {
+      font-size: 3rem;
+      font-weight: bold;
+      line-height: 1;
+    }
+    
+    .stats-counter {
+      font-size: 3rem;
+      font-weight: bold;
+      color: rgba(255,255,255,0.9);
+    }
+    
+    .enhanced-testimonial {
+      background: white;
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .enhanced-testimonial::before {
+      content: '"';
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      font-size: 5rem;
+      color: #0d6efd;
+      opacity: 0.1;
+      font-family: Georgia, serif;
+    }
+    
+    .feature-icon {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    /* New Phase 5 Features */
+    .phase5-features {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      color: white;
+      padding: 4rem 0;
+    }
+    
+    .phase5-card {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 15px;
+      padding: 2rem;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">🚀 Webspark</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="#how-it-works">How It Works</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="#security">Security</a></li>
+          <li class="nav-item"><a class="nav-link" href="register.html">Sign Up</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row align-items-center min-vh-100">
+        <div class="col-lg-6">
+          <h1 class="display-4 fw-bold mb-4">Grow Your Website With Real, Secure Traffic</h1>
+          <p class="lead mb-4">Webspark provides targeted, real human visitors using advanced security and the latest technology. Join thousands of satisfied users worldwide.</p>
+          
+          <!-- Enhanced Security Badges -->
+          <div class="security-badges mb-4">
+            <span class="security-badge me-2">
+              <i class="bi bi-shield-fill-check"></i> SSL Encrypted
+            </span>
+            <span class="security-badge me-2">
+              <i class="bi bi-person-check"></i> Real Humans Only
+            </span>
+            <span class="security-badge">
+              <i class="bi bi-lightning-fill"></i> Fast & Optimized
+            </span>
+          </div>
+          
+          <div class="hero-buttons mb-5">
+            <a href="register.html" class="btn btn-light btn-lg btn-custom me-3">
+              <i class="bi bi-rocket-takeoff"></i> Get Started Free
+            </a>
+            <a href="#features" class="btn btn-outline-light btn-lg btn-custom">
+              <i class="bi bi-play-circle"></i> Watch Demo
+            </a>
+          </div>
+          
+          <!-- Trust Indicators -->
+          <div class="trust-indicators">
+            <div class="trust-indicator">
+              <i class="bi bi-check-circle-fill"></i>
+              <span>No Bots Guarantee</span>
+            </div>
+            <div class="trust-indicator">
+              <i class="bi bi-shield-check"></i>
+              <span>GDPR Compliant</span>
+            </div>
+            <div class="trust-indicator">
+              <i class="bi bi-lightning-fill"></i>
+              <span>Fast Loading</span>
+            </div>
+            <div class="trust-indicator">
+              <i class="bi bi-headset"></i>
+              <span>24/7 Support</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-6">
+          <div class="hero-stats text-center">
+            <div class="row">
+              <div class="col-4">
+                <div class="stats-counter" data-target="15000">0</div>
+                <div class="stat-label">Active Users</div>
+                <div class="performance-indicator">
+                  <i class="bi bi-graph-up me-1"></i> +15% this month
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="stats-counter" data-target="2500000">0</div>
+                <div class="stat-label">Visits Exchanged</div>
+                <div class="performance-indicator">
+                  <i class="bi bi-clock me-1"></i> Real-time
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="stats-counter" data-target="75000">0</div>
+                <div class="stat-label">Websites</div>
+                <div class="performance-indicator">
+                  <i class="bi bi-globe me-1"></i> Global reach
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enhanced Features Section -->
+  <section id="features" class="py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold">Powerful & Secure Features</h2>
+        <p class="lead text-muted">Advanced technology meets robust security for the best traffic exchange experience</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4 lazy-load">
+          <div class="feature-card text-center">
+            <i class="bi bi-bar-chart-line-fill display-4 feature-icon mb-3"></i>
+            <h4>Real-Time Analytics</h4>
+            <p class="text-muted">Advanced Chart.js powered dashboards with real-time visitor tracking, conversion metrics, and detailed performance insights.</p>
+            <div class="feature-tags">
+              <span class="badge bg-primary">Chart.js</span>
+              <span class="badge bg-success">Real-time</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 lazy-load">
+          <div class="feature-card text-center">
+            <i class="bi bi-shield-fill-check display-4 text-success mb-3"></i>
+            <h4>Advanced Security</h4>
+            <p class="text-muted">Multi-layer security with CAPTCHA protection, SSL encryption, SQL injection prevention, and bot detection.</p>
+            <div class="feature-tags">
+              <span class="badge bg-success">SSL</span>
+              <span class="badge bg-warning">CAPTCHA</span>
+              <span class="badge bg-danger">Anti-Bot</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 lazy-load">
+          <div class="feature-card text-center">
+            <i class="bi bi-people-fill display-4 text-info mb-3"></i>
+            <h4>Referral System</h4>
+            <p class="text-muted">Earn credits by referring friends. Both you and your referrals get bonus credits when they join the platform.</p>
+            <div class="feature-tags">
+              <span class="badge bg-info">Earn Credits</span>
+              <span class="badge bg-success">Viral Growth</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Phase 5 Features Section -->
+  <section class="phase5-features lazy-load">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold">Advanced Features</h2>
+        <p class="lead opacity-90">Professional tools for serious marketers</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-3">
+          <div class="phase5-card text-center">
+            <i class="bi bi-envelope-check display-4 mb-3"></i>
+            <h5>Email Verification</h5>
+            <p class="small opacity-75">Secure email verification system with password reset functionality</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="phase5-card text-center">
+            <i class="bi bi-credit-card display-4 mb-3"></i>
+            <h5>Stripe Integration</h5>
+            <p class="small opacity-75">Secure payment processing with multiple subscription tiers</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="phase5-card text-center">
+            <i class="bi bi-share display-4 mb-3"></i>
+            <h5>Social Analytics</h5>
+            <p class="small opacity-75">Connect Facebook, Twitter, Instagram for comprehensive tracking</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="phase5-card text-center">
+            <i class="bi bi-graph-up-arrow display-4 mb-3"></i>
+            <h5>Performance Optimized</h5>
+            <p class="small opacity-75">Lazy loading, caching, and CDN for lightning-fast performance</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Security Section -->
+  <section id="security" class="py-5 bg-light lazy-load">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold">Enterprise-Grade Security</h2>
+        <p class="lead text-muted">Your data and privacy are our top priority</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="security-feature d-flex">
+            <div class="security-icon me-3">
+              <i class="bi bi-shield-fill-check text-success" style="font-size: 2rem;"></i>
+            </div>
+            <div>
+              <h5>SSL Encryption</h5>
+              <p class="text-muted mb-0">All data transmitted between your browser and our servers is encrypted with 256-bit SSL.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="security-feature d-flex">
+            <div class="security-icon me-3">
+              <i class="bi bi-robot text-warning" style="font-size: 2rem;"></i>
+            </div>
+            <div>
+              <h5>CAPTCHA Protection</h5>
+              <p class="text-muted mb-0">Google reCAPTCHA v2 integration prevents automated abuse and ensures real human visitors.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="security-feature d-flex">
+            <div class="security-icon me-3">
+              <i class="bi bi-database-fill-lock text-primary" style="font-size: 2rem;"></i>
+            </div>
+            <div>
+              <h5>SQL Injection Prevention</h5>
+              <p class="text-muted mb-0">Prepared statements and input validation protect against database attacks.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="security-feature d-flex">
+            <div class="security-icon me-3">
+              <i class="bi bi-eye-slash text-info" style="font-size: 2rem;"></i>
+            </div>
+            <div>
+              <h5>Privacy Compliant</h5>
+              <p class="text-muted mb-0">GDPR compliant with transparent privacy policies and user data control.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enhanced Pricing Section -->
+  <section id="pricing" class="py-5 lazy-load">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold">Choose Your Plan</h2>
+        <p class="lead text-muted">Secure, flexible pricing for every need</p>
+      </div>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-4">
+          <div class="pricing-card">
+            <div class="card h-100 border-0 shadow-lg">
+              <div class="card-header bg-light text-center py-4">
+                <h4>Free</h4>
+                <div class="price">$0<span class="text-muted" style="font-size: 1.2rem;">/month</span></div>
+                <div class="security-indicator mt-2">
+                  <i class="bi bi-shield-check text-success"></i> Secure & Protected
+                </div>
+              </div>
+              <div class="card-body p-4">
+                <ul class="list-unstyled">
+                  <li class="py-2"><i class="bi bi-check text-success me-2"></i> 10 Free Credits</li>
+                  <li class="py-2"><i class="bi bi-check text-success me-2"></i> Basic Analytics</li>
+                  <li class="py-2"><i class="bi bi-check text-success me-2"></i> Up to 3 Websites</li>
+                  <li class="py-2"><i class="bi bi-check text-success me-2"></i> SSL Protection</li>
+                  <li class="py-2"><i class="bi bi-check text-success me-2"></i> Email Support</li>
+                </ul>
+              </div>
+              <div class="card-footer bg-light text-center">
+                <a href="register.html" class="btn btn-outline-primary w-100">Get Started</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="pricing-card featured">
+            <div class="card h-100 border-primary shadow-lg position-relative">
+              <div class="badge bg-warning text-dark position-absolute top-0 start-50 translate-middle px-3 py-2">Most Popular</div>
+              <div class="card-header bg-primary text-white text-center py-4">
+                <h4>Premium</h4>
+                <div class="price text-white">$19<span style="font-size: 1.2rem;">/month</span></div>
+                <div class="security-indicator mt-2">
+                  <i class="bi bi-shield-fill-check"></i> Advanced Security
+                </div>
+              </div>
+              <div class="card-body p-4">
+                <ul class="list-unstyled">
+                  <li class="py-2"><i class="bi bi-check text-success me-2"></i> 100 Credits Monthly</li>
+                  <li class="py-2"><i class="bi bi-check text-success me-2"></i> Advanced Analytics</li>
+                  <li class="py-2"><i class="bi bi-check text-success me-2"></i> Up to 10 Websites</li>
+                  <li class="py-2"><i class="bi bi-check text-success me-2"></i> Geo-targeting</li>
+                  <li class="py-2"><i class="bi bi-check text-success me-2"></i> Priority Support</li>
+                  <li class="py-2"><i class="bi bi-check text-success me-2"></i> Social Analytics</li>
+                </ul>
+              </div>
+              <div class="card-footer bg-light text-center">
+                <a href="register.html" class="btn btn-primary w-100">Start Premium</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="pricing-card">
+            <div class="card h-100 border-0 shadow-lg">
+              <div class="card-header bg-dark text-white text-center py-4">
+                <h4>Pro</h4>
+                <div class="price text-white">$49<span style="font-size: 1.2rem;">/month</span></div>
+                <div class="security-indicator mt-2">
+                  <i class="bi bi-shield-fill-check"></i> Enterprise Security
+                </div>
+              </div>
+              <div class="card-body p-4">
+                <ul class="list-unstyled">
+                  <li class="py-2"><i class="bi bi-check text-success me-2"></i> 500 Credits Monthly</li>
+                  <li class="py-2"><i class="bi bi-check text-success me-2"></i> Premium Analytics</li>
+                  <li class="py-2"><i class="bi bi-check text-success me-2"></i> Unlimited Websites</li>
+                  <li class="py-2"><i class="bi bi-check text-success me-2"></i> Advanced Targeting</li>
+                  <li class="py-2"><i class="bi bi-check text-success me-2"></i> API Access</li>
+                  <li class="py-2"><i class="bi bi-check text-success me-2"></i> 24/7 VIP Support</li>
+                </ul>
+              </div>
+              <div class="card-footer bg-light text-center">
+                <a href="register.html" class="btn btn-dark w-100">Go Pro</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enhanced Testimonials -->
+  <section class="py-5 bg-light lazy-load">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold">Trusted by Thousands</h2>
+        <p class="lead text-muted">See what our users say about security and performance</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="enhanced-testimonial">
+            <div class="stars mb-3">
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+            </div>
+            <p class="text-muted">The security features are amazing! I feel safe knowing my data is protected with SSL and CAPTCHA verification.</p>
+            <div class="testimonial-author d-flex align-items-center">
+              <div class="author-avatar me-3">
+                <i class="bi bi-person-circle" style="font-size: 2.5rem; color: #0d6efd;"></i>
+              </div>
+              <div>
+                <strong>Sarah Johnson</strong>
+                <div class="small text-muted">Tech Blogger</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="enhanced-testimonial">
+            <div class="stars mb-3">
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+            </div>
+            <p class="text-muted">Lightning fast loading times and the analytics dashboard is incredibly detailed. The referral system bonus is great too!</p>
+            <div class="testimonial-author d-flex align-items-center">
+              <div class="author-avatar me-3">
+                <i class="bi bi-person-circle" style="font-size: 2.5rem; color: #28a745;"></i>
+              </div>
+              <div>
+                <strong>Mike Chen</strong>
+                <div class="small text-muted">E-commerce Owner</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="enhanced-testimonial">
+            <div class="stars mb-3">
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+            </div>
+            <p class="text-muted">The social media analytics integration is powerful. I can track all my traffic sources in one place securely.</p>
+            <div class="testimonial-author d-flex align-items-center">
+              <div class="author-avatar me-3">
+                <i class="bi bi-person-circle" style="font-size: 2.5rem; color: #dc3545;"></i>
+              </div>
+              <div>
+                <strong>Emma Davis</strong>
+                <div class="small text-muted">Digital Marketer</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <h5>🚀 Webspark</h5>
+          <p>The most secure and advanced traffic exchange network. Built with enterprise-grade security and cutting-edge technology.</p>
+          <div class="security-certifications">
+            <span class="badge bg-success me-2">
+              <i class="bi bi-shield-check"></i> SSL Certified
+            </span>
+            <span class="badge bg-primary">
+              <i class="bi bi-patch-check"></i> GDPR Compliant
+            </span>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5>Platform</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="text-light text-decoration-none">Home</a></li>
+            <li><a href="#features" class="text-light text-decoration-none">Features</a></li>
+            <li><a href="#security" class="text-light text-decoration-none">Security</a></li>
+            <li><a href="#pricing" class="text-light text-decoration-none">Pricing</a></li>
+            <li><a href="register.html" class="text-light text-decoration-none">Sign Up</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5>Contact & Support</h5>
+          <p><i class="bi bi-geo-alt me-2"></i> Sydney, Australia</p>
+          <p><i class="bi bi-envelope me-2"></i> hello@webspark.com</p>
+          <p><i class="bi bi-phone me-2"></i> +61 2 1234 5678</p>
+          <p><i class="bi bi-headset me-2"></i> 24/7 Support Available</p>
+          <div class="social-links mt-3">
+            <a href="#" class="text-light me-3"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="text-light me-3"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="text-light me-3"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="text-light"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="my-4 opacity-25">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <p class="mb-0">&copy; 2025 Webspark Traffic Network. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <small class="text-muted">Made with ❤️ and ⚡ in Sydney, Australia</small>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Performance: Lazy loading implementation
+    document.addEventListener('DOMContentLoaded', function() {
+      const lazyElements = document.querySelectorAll('.lazy-load');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('loaded');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '50px'
+      });
+      
+      lazyElements.forEach(element => observer.observe(element));
+      
+      // Animate counters
+      const counters = document.querySelectorAll('.stats-counter');
+      const animateCounter = (counter) => {
+        const target = parseInt(counter.dataset.target);
+        const duration = 2000;
+        const start = 0;
+        const startTime = Date.now();
+        
+        const updateCounter = () => {
+          const elapsed = Date.now() - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const current = Math.floor(progress * target);
+          
+          counter.textContent = current.toLocaleString();
+          
+          if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+          }
+        };
+        
+        updateCounter();
+      };
+      
+      const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            counterObserver.unobserve(entry.target);
+          }
+        });
+      });
+      
+      counters.forEach(counter => counterObserver.observe(counter));
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Performance monitoring
+    window.addEventListener('load', function() {
+      if ('performance' in window) {
+        const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+        console.log('Page load time:', loadTime + 'ms');
+      }
+    });
+  </script>
+
+  <!-- Performance: Load critical CSS inline, defer non-critical -->
+  <style>
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .loaded {
+      animation: fadeInUp 0.6s ease forwards;
+    }
+    
+    /* Critical path CSS for above-the-fold content */
+    .hero-section, .navbar {
+      will-change: transform;
+    }
+  </style>
+</body>
+</html>

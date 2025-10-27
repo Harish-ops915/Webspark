@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Traffic Exchange - Webspark</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body class="dashboard-page">
+  <!-- Header -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="dashboard.html">🚀 Webspark</a>
+      <div class="navbar-nav ms-auto">
+        <div class="credits-display me-3">
+          <span class="badge bg-success fs-6">
+            <i class="bi bi-coin"></i> <span id="userCredits">125</span> Credits
+          </span>
+        </div>
+        <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
+            <i class="bi bi-person-circle"></i> John Doe
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+            <li><a class="dropdown-item" href="dashboard.html">Dashboard</a></li>
+            <li><a class="dropdown-item" href="index.html">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container py-4">
+    <!-- Page Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <div>
+        <h2>Traffic Exchange</h2>
+        <p class="text-muted mb-0">Visit websites to earn credits, then use credits to get visitors to your sites</p>
+      </div>
+      <a href="dashboard.html" class="btn btn-outline-primary">
+        <i class="bi bi-arrow-left"></i> Back to Dashboard
+      </a>
+    </div>
+
+    <!-- Filter Section -->
+    <div class="card shadow-sm mb-4">
+      <div class="card-body">
+        <h5 class="card-title mb-3">Find Websites to Visit</h5>
+        <form id="filterForm" class="row g-3">
+          <div class="col-md-3">
+            <label class="form-label">Country</label>
+            <select class="form-select" id="countryFilter">
+              <option value="">Any Country</option>
+              <option value="Australia">Australia</option>
+              <option value="USA">United States</option>
+              <option value="UK">United Kingdom</option>
+              <option value="Canada">Canada</option>
+              <option value="India">India</option>
+              <option value="Germany">Germany</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Niche</label>
+            <select class="form-select" id="nicheFilter">
+              <option value="">Any Niche</option>
+              <option value="Technology">Technology</option>
+              <option value="Health">Health & Fitness</option>
+              <option value="Business">Business</option>
+              <option value="Education">Education</option>
+              <option value="Entertainment">Entertainment</option>
+              <option value="Travel">Travel</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Dwell Time</label>
+            <select class="form-select" id="dwellTimeFilter">
+              <option value="">Any Duration</option>
+              <option value="15">15 seconds (1 credit)</option>
+              <option value="30">30 seconds (2 credits)</option>
+              <option value="60">60 seconds (3 credits)</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">&nbsp;</label>
+            <button type="submit" class="btn btn-primary w-100">
+              <i class="bi bi-funnel"></i> Apply Filters
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Exchange Stats -->
+    <div class="row g-3 mb-4">
+      <div class="col-md-3">
+        <div class="stat-box text-center">
+          <i class="bi bi-eye-fill text-primary"></i>
+          <div class="stat-number">47</div>
+          <div class="stat-label">Sites Visited Today</div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="stat-box text-center">
+          <i class="bi bi-coin text-warning"></i>
+          <div class="stat-number">47</div>
+          <div class="stat-label">Credits Earned Today</div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="stat-box text-center">
+          <i class="bi bi-clock text-info"></i>
+          <div class="stat-number">23m</div>
+          <div class="stat-label">Time Spent Today</div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="stat-box text-center">
+          <i class="bi bi-people-fill text-success"></i>
+          <div class="stat-number">234</div>
+          <div class="stat-label">Visitors Sent</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Available Websites -->
+    <div class="card shadow-sm">
+      <div class="card-header bg-primary text-white">
+        <div class="d-flex justify-content-between align-items-center">
+          <h5 class="mb-0">Available Websites</h5>
+          <span class="badge bg-light text-dark" id="websiteCount">24 websites found</span>
+        </div>
+      </div>
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table table-hover mb-0">
+            <thead class="table-light">
+              <tr>
+                <th>Website</th>
+                <th>Owner</th>
+                <th>Niche</th>
+                <th>Country</th>
+                <th>Duration</th>
+                <th>Credits</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="websitesList">
+              <tr>
+                <td>
+                  <div class="website-info">
+                    <i class="bi bi-globe text-primary me-2"></i>
+                    <strong>techblog.com</strong>
+                    <div class="small text-muted">Technology Blog & News</div>
+                  </div>
+                </td>
+                <td>@techguru</td>
+                <td><span class="badge bg-secondary">Technology</span></td>
+                <td><span class="badge bg-info">USA</span></td>
+                <td>30s</td>
+                <td><span class="credit-cost">2</span></td>
+                <td>
+                  <button class="btn btn-success btn-sm visit-btn" data-url="https://techblog.com" data-credits="2">
+                    <i class="bi bi-eye"></i> Visit
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="website-info">
+                    <i class="bi bi-globe text-primary me-2"></i>
+                    <strong>healthtips.net</strong>
+                    <div class="small text-muted">Health & Wellness Tips</div>
+                  </div>
+                </td>
+                <td>@healthpro</td>
+                <td><span class="badge bg-secondary">Health</span></td>
+                <td><span class="badge bg-info">Canada</span></td>
+                <td>15s</td>
+                <td><span class="credit-cost">1</span></td>
+                <td>
+                  <button class="btn btn-success btn-sm visit-btn" data-url="https://healthtips.net" data-credits="1">
+                    <i class="bi bi-eye"></i> Visit
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="website-info">
+                    <i class="bi bi-globe text-primary me-2"></i>
+                    <strong>businessinsights.co</strong>
+                    <div class="small text-muted">Business Strategy & Insights</div>
+                  </div>
+                </td>
+                <td>@bizexpert</td>
+                <td><span class="badge bg-secondary">Business</span></td>
+                <td><span class="badge bg-info">UK</span></td>
+                <td>60s</td>
+                <td><span class="credit-cost">3</span></td>
+                <td>
+                  <button class="btn btn-success btn-sm visit-btn" data-url="https://businessinsights.co" data-credits="3">
+                    <i class="bi bi-eye"></i> Visit
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="website-info">
+                    <i class="bi bi-globe text-primary me-2"></i>
+                    <strong>travelguide.org</strong>
+                    <div class="small text-muted">World Travel Guides</div>
+                  </div>
+                </td>
+                <td>@traveler</td>
+                <td><span class="badge bg-secondary">Travel</span></td>
+                <td><span class="badge bg-info">Australia</span></td>
+                <td>30s</td>
+                <td><span class="credit-cost">2</span></td>
+                <td>
+                  <button class="btn btn-success btn-sm visit-btn" data-url="https://travelguide.org" data-credits="2">
+                    <i class="bi bi-eye"></i> Visit
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <nav class="mt-4">
+      <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+          <a class="page-link" href="#">Previous</a>
+        </li>
+        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#">Next</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Visit button functionality
+    document.querySelectorAll('.visit-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        const url = this.dataset.url;
+        const credits = this.dataset.credits;
+        window.open(`visit.html?url=${encodeURIComponent(url)}&credits=${credits}`, '_blank');
+      });
+    });
+  </script>
+</body>
+</html>
